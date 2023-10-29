@@ -1,0 +1,23 @@
+name: Laravel Deployment
+
+on:
+  push:
+    branches:
+      - main
+    #workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.GITHUB_TOKEN }}
+          script: "cd ${{ secrets.ProjectPath }} && ./deploy.sh ${{ secrets.Username }} ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ProjectPath }} ${{ secrets.GithubProjectUri }}"
+
+
+
