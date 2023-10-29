@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.GITHUB_TOKEN }}
-          script: "cd ${{ secrets.ProjectPath }} && ./deploy.sh ${{ secrets.Username }} ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ProjectPath }} ${{ secrets.GithubProjectUri }}"
+          script: "cd ${{ secrets.ProjectPath }} && ./deploy.sh ${{ secrets.Username_GITHUB }} ${{ secrets.GITHUB_TOKEN }} ${{ secrets.ProjectPath }} ${{ secrets.GithubProjectUri }}"
 
 
 
